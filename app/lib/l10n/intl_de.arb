@@ -1,0 +1,21 @@
+{
+    "@@locale": "de",
+    "settingTitle": "Einstellungen",
+    "settingThemeTitle": "Thema",
+    "settingThemeDescription": "Wähle dein Thema aus",
+    "settingThemeValueDark": "Dunkel",
+    "settingThemeValueLight": "Hell",
+    "settingThemeValueSystem": "System ({systemTheme})",
+    "@settingThemeValueSystem": {
+        "placeholders": {
+            "systemTheme": {}
+        }
+    },
+    "settingDsmTitle": "Datensparmodus",
+    "settingDsmDescription": "Wähle deinen Datensparmodus aus",
+    "settingDsmValueAlways": "Immer",
+    "settingDsmValueNever": "Nie",
+    "settingDsmValueOnlyMobileData": "Nur im mobilen Datennetz",
+    "settingLocaleTitle": "Sprache",
+    "settingLocaleDescription": "Wähle deine Sprache aus"
+}
