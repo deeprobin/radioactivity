@@ -1,0 +1,21 @@
+{
+    "@@locale": "en",
+    "settingTitle": "Settings",
+    "settingThemeTitle": "Theme",
+    "settingThemeDescription": "Select your theme",
+    "settingThemeValueDark": "Dark",
+    "settingThemeValueLight": "Light",
+    "settingThemeValueSystem": "System ({systemTheme})",
+    "@settingThemeValueSystem": {
+        "placeholders": {
+            "systemTheme": {}
+        }
+    },
+    "settingDsmTitle": "Data saving mode",
+    "settingDsmDescription": "Select your data saving mode",
+    "settingDsmValueAlways": "Always",
+    "settingDsmValueNever": "Never",
+    "settingDsmValueOnlyMobileData": "Only mobile data",
+    "settingLocaleTitle": "Locale",
+    "settingLocaleDescription": "Select your locale"
+}

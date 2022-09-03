@@ -1,0 +1,34 @@
+name: CI (api-client)
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: ["api-client/**"]
+  pull_request:
+    branches: [ "main" ]
+    paths: ["api-client/**"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./api-client
+    steps:
+      - uses: actions/checkout@v3
+        
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze project source
+        run: dart analyze --fatal-infos
+
+      - name: Run tests
+        run: dart test

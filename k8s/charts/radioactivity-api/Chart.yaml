@@ -1,0 +1,6 @@
+apiVersion: v2
+name: radioactivity-api
+description: The API for the radioactivity app
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
