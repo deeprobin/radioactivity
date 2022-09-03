@@ -1,0 +1,18 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: ["api/**"]
+  pull_request:
+    branches: [ "main" ]
+    paths: ["api/**"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file ./api/src/RadioactivityApp/Dockerfile --tag radioactivity-api:$(date +%s)

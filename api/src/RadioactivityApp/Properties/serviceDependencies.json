@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "redis1": {
+      "type": "redis",
+      "connectionId": "RedisConnectionString",
+      "dynamicId": null
+    },
+    "appInsights1": {
+      "type": "appInsights"
+    }
+  }
+}

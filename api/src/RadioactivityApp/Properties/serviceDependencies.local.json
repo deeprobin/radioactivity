@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "redis1": {
+      "containerPorts": "6379:6379",
+      "secretStore": "LocalSecretsFile",
+      "containerName": "redis",
+      "containerImage": "redis:alpine",
+      "type": "redis.container",
+      "connectionId": "RedisConnectionString",
+      "dynamicId": null
+    },
+    "appInsights1": {
+      "type": "appInsights.sdk"
+    }
+  }
+}

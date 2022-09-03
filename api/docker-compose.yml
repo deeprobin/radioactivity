@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  radioactivityapp:
+    image: ${DOCKER_REGISTRY-}radioactivity
+    environment:
+      - DOTNET_InfluxConnectionString=http://influxdb:8086/
+      - DOTNET_InfluxUser=radioactivity
+      - DOTNET_InfluxPassword=password
+      - DOTNET_RedisConnectionString=redis
+      - DOTNET_ENVIRONMENT=Development
+    ports:
+      - "80:80"
+      - "443:443"
+    build:
+      context: .
+      dockerfile: src/RadioactivityApp/Dockerfile
+    networks:
+      - radioactive_network
+  redis:
+    image: redis:7.0.4-alpine
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - radioactive_network
+  influxdb:
+    image: influxdb:2.4-alpine
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=radioactivity
+      - DOCKER_INFLUXDB_INIT_PASSWORD=password
+      - DOCKER_INFLUXDB_INIT_ORG=radioactivity
+      - DOCKER_INFLUXDB_INIT_BUCKET=odl
+      - DOCKER_INFLUXDB_INIT_RETENTION=1w
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=token
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+      - "2003:2003"
+    networks:
+      - radioactive_network
+networks:
+  radioactive_network:
+    driver: bridge
